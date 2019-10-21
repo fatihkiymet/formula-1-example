@@ -1,0 +1,28 @@
+@mixin app-tabs-theme($theme) {
+    $component-theme: (
+        tabs-background-color: map-get($theme, primary),
+        tabs-label-text-color: map-get($theme, primary-text-color),
+        tabs-label-font-size: 1.3rem,
+        tabs-label-background-color-selected: map-get($theme, accent),
+        tabs-label-text-color-selected: map-get($theme, accent-text-color)
+    );
+
+    $configuration: map-merge(
+        $component-theme,
+        $theme
+    );
+
+    .app-tabs {
+        background-color: map-get($configuration, tabs-background-color);
+
+        &-label {
+            color: map-get($configuration, tabs-label-text-color);
+            font-size: map-get($configuration, tabs-label-font-size);
+
+            &.selected {
+                color: map-get($configuration, tabs-label-text-color-selected); 
+                background-color: map-get($configuration, tabs-label-background-color-selected);
+            }
+        }
+    }
+}

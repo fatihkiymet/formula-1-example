@@ -1,0 +1,19 @@
+@mixin core-theme($theme) {
+    $component-theme: (
+        body-bg-color: #efefeb,
+        page-content-bg-color: null
+    );
+
+    $configuration: map-merge(
+        $component-theme,
+        $theme
+    );
+
+    body {
+        background-color: map-get($configuration, body-bg-color);
+    }
+
+    .app-page-content {
+        background-color: map-get($configuration, page-content-bg-color);
+    }
+}
